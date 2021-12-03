@@ -7,6 +7,32 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE(myStoryBuf);
 END;
 /
+--modulo de alianzas
+CREATE OR REPLACE PROCEDURE MODULO_DE_ALIANZAS(FECHA DATE)
+IS
+ID_PAQUETE NUMBER;
+FECHA_FIN DATE;
+FECHA_INICIO DATE;
+BEGIN
+    SELECT h.fk_paquete into ID_PAQUETE from his_alianzas h, his_paquetes p, paquetes a where h.fk_paquete = p.fk_paquete and a.id = p.fk_paquete and p.disponibilidad = 0 and a.sobresaturado = 0 ORDER BY DBMS_RANDOM.RANDOM fetch first 1 rows only; 
+    SELECT F.FECHAS.FECHA_DESDE INTO FECHA_INICIO FROM HIS_PAQUETES F WHERE F.FK_PAQUETE = ID_PAQUETE fetch first 1 row only;
+    FECHA_INICIO:= FECHA_INICIO + 31;
+    FECHA_FIN := FECHA_INICIO  + 41;
+    UPDATE HIS_PAQUETES H SET H.FECHAS.FECHA_DESDE = FECHA_INICIO WHERE H.FK_PAQUETE = ID_PAQUETE;
+    UPDATE HIS_PAQUETES H SET H.FECHAS.FECHA_HASTA = FECHA_FIN WHERE H.FK_PAQUETE = ID_PAQUETE;
+    UPDATE HIS_PAQUETES H SET DISPONIBILIDAD = 300 WHERE H.FK_PAQUETE = ID_PAQUETE;
+
+    UPDATE PAQUETES SET sobresaturado = 1 WHERE id=ID_PAQUETE;
+
+
+    DBMS_OUTPUT.PUT_LINE('FECHAS Y DISPONIBILIDAD DEL PAQUETE '|| ID_PAQUETE || ' ACTUALIZADAS ');
+
+    EXCEPTION 
+        WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('MODULO DE ALIANZAS: NO HAY PAQUETES PARA HACER ALIANZAS');
+
+END;
+/
 -- funcion para obtener passaportes de las personas con pcrs negativas en un periodo menor a 48 horas desde la fecha pasada como parametro
 CREATE OR REPLACE FUNCTION GET_PASAPORTE_PERSONA_SANA(fecha_actual date) RETURN NUMBER
 IS
@@ -29,7 +55,7 @@ IS
 PAQUETE NUMBER;
 BEGIN
 
-    SELECT P.ID INTO PAQUETE FROM PAQUETES P, HIS_PAQUETES H WHERE P.ID = H.FK_PAQUETE AND H.FECHAS.FECHA_DESDE >= fecha_actual AND H.DISPONIBILIDAD > 0 ORDER BY DBMS_RANDOM.RANDOM fetch first 1 rows only;
+    SELECT P.ID INTO PAQUETE FROM PAQUETES P, HIS_PAQUETES H WHERE P.ID = H.FK_PAQUETE AND H.FECHAS.FECHA_DESDE >= fecha_actual ORDER BY DBMS_RANDOM.RANDOM fetch first 1 rows only;
     RETURN PAQUETE;
 
     EXCEPTION 
@@ -50,13 +76,13 @@ BEGIN
 
     IF (PAQUETES_DISPONIBLES IS NULL) THEN
 
-        DBMS_OUTPUT.PUT_LINE('No se encontro paquete con el identificador dado');
+        DBMS_OUTPUT.PUT_LINE('DISMINUIR DISPONIBILIDAD: No se encontro paquete con el identificador dado: '||PAQUETE);
         REGRESO:=0;
     ELSIF (PAQUETES_DISPONIBLES = 0) THEN
 
     --paquete sobresaturado
-        DBMS_OUTPUT.PUT_LINE('El Paquete seleccionado no tiene disponibilidad');
-        REGRESO:= 0;
+        DBMS_OUTPUT.PUT_LINE('DISMINUIR DISPONIBILIDAD: El Paquete' || paquete ||' seleccionado no tiene disponibilidad');
+        REGRESO:= -1;
 
     ELSIF (PAQUETES_DISPONIBLES < DISMINUCION) THEN 
 
@@ -173,7 +199,7 @@ BEGIN
     END IF;
 
     IF (PRECIO_PAQUETE IS NULL) THEN
-    DBMS_OUTPUT.PUT_LINE('Error: El paquete introducido no es valido.');
+    DBMS_OUTPUT.PUT_LINE('GENERAR FACTURA: El paquete introducido no es valido.');
     ELSE
     PRECIO_PAQUETE := PRECIO_PAQUETE * CANTIDAD;
     --GENERAR DETALLE,FACTURA Y FORMA DE PAGO
@@ -182,7 +208,13 @@ BEGIN
 
         IF (DISMINUCION = 0 ) THEN
 
-        DBMS_OUTPUT.PUT_LINE('No hay dispoonibilidad para el paquete seleccionado');
+        DBMS_OUTPUT.PUT_LINE('GENERAR FACTURA: No hay disponibilidad para el paquete seleccionado');
+        
+        ELSIF (DISMINUCION = -1) THEN
+
+        --AQUI PUEDO PONER EL MODULO DE GENERACION DE PAQUETES -2
+        DBMS_OUTPUT.PUT_LINE('GENERAR FACTURA: GENERANDO NUEVA ALIANZA');
+        MODULO_DE_ALIANZAS(FECHA);
 
         ELSE 
 
@@ -266,7 +298,7 @@ BEGIN
 
     IF (PAQUETE = 0) THEN 
 
-    DBMS_OUTPUT.PUT_LINE('No hay paquetes disponibles para hoy');
+    DBMS_OUTPUT.PUT_LINE('MODULO DE COMPRAS: No hay paquetes con fechas validas');
 
     ELSE
 
@@ -274,9 +306,9 @@ BEGIN
 
         IF (PASAPORTE_PERSONA = 0) Then
 
-            DBMS_OUTPUT.PUT_LINE('No hay personas que cumplan las condiciones para entrar');
+            DBMS_OUTPUT.PUT_LINE('MODULO DE COMPRAS: No hay personas que cumplan las condiciones para entrar');
         ELSE 
-            Select trunc(dbms_random.value(1,10)) num into ALEATORIO_PAQUETES From dual;
+            Select trunc(dbms_random.value(1,50)) num into ALEATORIO_PAQUETES From dual;
             GENERAR_FACTURA(PAQUETE,PASAPORTE_PERSONA,ALEATORIO_PAQUETES,fecha_actual);
 
         END IF;
@@ -288,4 +320,19 @@ BEGIN
     END LOOP;
 
 END ;
+/
+-- procedimiento de simulacion  
+CREATE OR REPLACE PROCEDURE SIMULACION(FECHA_INICIO DATE, FECHA_FIN DATE)
+AS
+CANTIDAD_DIAS NUMBER;
+DIA_ACTUAL DATE;
+BEGIN
+    CANTIDAD_DIAS := FECHA_FIN - FECHA_INICIO;
+    DIA_ACTUAL := FECHA_INICIO; 
+    FOR ITERACION IN 0..CANTIDAD_DIAS
+    LOOP
+    DIA_ACTUAL:= DIA_ACTUAL + 1;
+    MODULO_DE_COMPRAS(DIA_ACTUAL);
+    END LOOP;
 
+END;
