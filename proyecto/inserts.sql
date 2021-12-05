@@ -30,118 +30,135 @@ INSERT INTO VENTAS_COMPETIDORES (FECHA_CREACION,CANTIDAD_VENTAS,FK_COMPETIDOR) V
 INSERT INTO VENTAS_COMPETIDORES (FECHA_CREACION,CANTIDAD_VENTAS,FK_COMPETIDOR) VALUES (DATE '2021-3-1',4000,6);
 INSERT INTO VENTAS_COMPETIDORES (FECHA_CREACION,CANTIDAD_VENTAS,FK_COMPETIDOR) VALUES (DATE '2021-1-1',8000,7);
 
-INSERT INTO DESTINOS VALUES (1,DATOS_TDA('LOS ROQUES','Territorio Insular Francisco de Miranda.'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (1,DATOS_TDA('LOS ROQUES','Territorio Insular Francisco de Miranda.'),empty_blob(),empty_blob(),
 'Este precioso archipiélago y parque nacional de islas y cayos forma parte de las Antillas Menores venezolanas. Su isla más grande es Gran Roque, donde reside la mayor parte de sus 3 mil y tantos habitantes y donde está el aeropuerto que brinda el principal acceso al territorio. Los Roques es parecido a un atolón, formaciones que son muy raras en el Caribe. Sus playas paradisíacas, de diferentes tonos de azul, aguas transparentes y blanca arena, están consideradas entre las más puras de las Antillas. Entre los cayos se distinguen Cayo de Agua, Cayo Sal, Cayo Pirata y Cayos Francisqui. Los roqueños son hábiles pescadores de langostas, por lo que Los Roques es el mejor lugar de Venezuela para disfrutar esta exquisitez. El principal acceso es desde el Aeropuerto de Maiquetía, que sirve a la ciudad de Caracas.'
 );
-INSERT INTO DESTINOS VALUES (2,DATOS_TDA('MORROCOY','Estado Falcon'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (2,DATOS_TDA('MORROCOY','Estado Falcon'),empty_blob(),empty_blob(),
 'Es un Parque Nacional situado en el estado occidental de Falcón. Cuenta con espectaculares playas tanto en el territorio continental como en sus distintos islotes y cayos cercanos a la costa. El área insular más reconocida de Morrocoy es Cayo Sombrero, que cuenta con dos amplias playas de aguas nítidas y clamadas, sombreadas por los cocoteros. Punta Brava es el cayo más visitado ya que permite el acceso en coche a través de un puente. En tierra firme, la población más importante del parque es Tucacas, una ciudad de poco más de 30.000 habitantes que también cuenta con bonitas playas.'
 );
-INSERT INTO DESTINOS VALUES (3,DATOS_TDA('Adicora','Estado Falcon'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (3,DATOS_TDA('Adicora','Estado Falcon'),empty_blob(),empty_blob(),
 'Los vientos Alisios que se abaten sobre la Península de Paraguaná y el occidente venezolano son intensos y constantes, haciendo de la playa de Adícora un paraíso para los deportes de viento, especialmente el kitesurf y el windsurf. Paraguaná está separada del resto del territorio nacional por el istmo de los Médanos de Coro, donde se forman estos atractivos arenales que van cambiando de forma y donde se practican algunos entretenimientos. Finalizado el istmo está Coro, la capital de Falcón, con un bello centro colonial.'
 );
-INSERT INTO DESTINOS VALUES (4,DATOS_TDA('Bahia de cata','Estado aragua'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (4,DATOS_TDA('Bahia de cata','Estado aragua'),empty_blob(),empty_blob(),
  'A 54 kilómetros de la capital del estado Aragua, Maracay, por una sinuosa carretera, se encuentra esta hermosa ensenada, con una amplia playa de aguas diáfanas y arena fina y blanca. Durante la colonia, en las cercanías había enormes plantaciones de cacao y cuando los comerciantes españoles especulaban a la baja con los precios, los hacendados venezolanos más poderosos vendían su fruto a los contrabandistas holandeses, que utilizaban esta y otras bahías aragüeñas para cargar. Cerca de Bahía de Cata  hay otras espléndidas playas, como Cuyagua, La Ciénaga de Ocumare y Ensenadas de Chuao.'
 );
-INSERT INTO DESTINOS VALUES (5,DATOS_TDA('Choroni','Estado Aragua'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (5,DATOS_TDA('Choroni','Estado Aragua'),empty_blob(),empty_blob(),
  'Frente al mar en la cordillera de la Costa, embutida dentro del Parque Nacional Henri Pittier, está la pintoresca población de Choroní, con su magnífica playa. La exuberante vegetación de los alrededores está formada por árboles que dan sombra y protegen a las plantas que producen uno de los cacaos de mayor calidad a nivel mundial. Este marco de verdor cubre también a Playa Grande, la más apreciada del lugar por su extensión, fina arena y deliciosas aguas, que por su fortaleza constituyen uno de los destinos preferidos de los surfistas venezolanos.'
 );
-INSERT INTO DESTINOS VALUES (6,DATOS_TDA('Playa caribe','Estado Miranda'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (6,DATOS_TDA('Playa caribe','Estado Miranda'),empty_blob(),empty_blob(),
 'La zona de playas del estado Miranda, entidad que limita con el Distrito Capital (el antiguo DF venezolano), es ampliamente utilizada por los caraqueños para sus salidas de playa de ida y vuelta el mismo día, aunque muchos tienen allí sus casas y apartamentos de descanso. Una de las playas más encantadoras de la costa mirandina es Playa Caribe. Sus aguas son diáfanas, su oleaje es calmado y su arena es fina y blanca. La presencia de corales la hace atractiva para el snorkel.'
 );
-INSERT INTO DESTINOS VALUES (7,DATOS_TDA('Las Isletas de piritu','Estado Anzoategui'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (7,DATOS_TDA('Las Isletas de piritu','Estado Anzoategui'),empty_blob(),empty_blob(),
 'Frente a la población anzoatiguense de Píritu, están dos islitas que han cobrado auge como destino turístico por sus playas de aguas nítidas y calmado oleaje. La vida en las aguas y en el fondo marino de las playas es muy rica y es posible admirar pepinos de mar, estrellas de mar, erizos y pececillos. En una de las islas hay un yacimiento de mineral de azufre, que los lugareños promocionan como excelente para tratamientos de piel y otros fines medicinales.'
 );
-INSERT INTO DESTINOS VALUES (8,DATOS_TDA('Mochima','Sucre y anzoategui'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (8,DATOS_TDA('Mochima','Sucre y anzoategui'),empty_blob(),empty_blob(),
 'El Parque Nacional Mochima, que abarca buena parte de las islas y de la costa perteneciente a los estados Sucre y Anzoategui, cuenta con las playas más tranquilas, transparentes y hermosas de la zona oriental del país. La ciudad cercana más importante es Puerto La Cruz, que hace una gran conurbación con Barcelona, la capital del estado Anzoategui, donde está el aeropuerto internacional. Entre las playas insulares más espectaculares están Isla de Plata, Arapo, Playa Blanca, Las Marites y Cautaro. En tierra continental, las más frecuentadas son Arapito y Playa Colorada. Mochima es lugar ideal para degustar una catalana, pescado de piel roja y carne blanca y delicada.'
 );
-INSERT INTO DESTINOS VALUES (9,DATOS_TDA('Playa medina','Estado Sucre'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (9,DATOS_TDA('Playa medina','Estado Sucre'),empty_blob(),empty_blob(),
 'Situada hacia el lado oriental del estado Sucre, en la Península de Paria, este lugar está catalogado como el mejor refugio playero del país. La vía es de difícil acceso, por lo que es recomendable hacerla en vehículo de doble tracción. La playa de limpia arena e intenso color azul cuenta con una amplia plantación de cocoteros con suelo de césped, por el que se puede andar cómodamente. Los lugareños siempre están prestos para darte a beber un coco o a comer su tierna pulpa. Los alojamientos son escasos y sencillos y los restaurantes rústicos y acogedores. La mayoríade los visitantes se aloja en la cercana ciudad de Carúpano.'
 );
-INSERT INTO DESTINOS VALUES (10,DATOS_TDA('Coche','Estado nueva esparta'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (10,DATOS_TDA('Coche','Estado nueva esparta'),empty_blob(),empty_blob(),
 'Esta isla desértica forma parte de Nueva Esparta, el único estado insular venezolano, integrado además por las islas de Margarita y Cubagua. A la pequeña isla de 54 km2  se llega hasta su capital, San Pedro de Coche, por un pequeño aeropuerto o por transbordador desde la cercana isla de Margarita. El perímetro de la isla es de bellas playas, algunas azotadas por buenos vientos, ideales para los deportes de mar. La más frecuentada es Playa la Punta, una linda playa de mar en calma, aguas en varios tonos de azul y fina arena blanca, ideal para el windsurf y el kitesurf.'
 );
-INSERT INTO DESTINOS VALUES (11,DATOS_TDA('Cubagua','Estado Nueva esparta'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (11,DATOS_TDA('Cubagua','Estado Nueva esparta'),empty_blob(),empty_blob(),
 'Es una isla deshabitada del estado Nueva Esparta que se hizo célebre desde el siglo XVI por sus ricos placeres de perlas, que eran extraídas de las profundidades por los indios guaiqueríes buceando a pulmón. Fue uno de las primeras poblaciones de los españoles en América, después que Colón descubrió la isla en su tercer viaje. El poblado fue destruido por un maremoto y el lugar ya no volvió a repoblarse, existiendo actualmente solo unas pocas casas de pescadores. Guarda algunas de las playas más vírgenes del país, a las que solo puede llegarse por embarcaciones, navegando unos 10 minutos desde la isla de Margarita. Entre estas playas están Charagato, Falucho y Cabecera.'
 );
-INSERT INTO DESTINOS VALUES (12,DATOS_TDA('Margarita','Estado Nueva esparta'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (12,DATOS_TDA('Margarita','Estado Nueva esparta'),empty_blob(),empty_blob(),
 'La isla más grande y poblada de Venezuela es también el principal destino turístico del país. Cuenta con la mayor concentración de hermosas playas, de todos los tipos, en todo el territorio nacional. Su oferta hotelera es amplia y tiene innumerables lugares históricos de interés, como templos, castillos y fortines de la época colonial. Su gastronomía es deliciosa, siendo sus platos estrella el sancocho de pescado y las empanadas de cazón. La capital de la isla es La Asunción, por historia, pero la ciudad más importante es la moderna Porlamar. Sus playas de buen oleaje están frente al Caribe abierto, como Playa El Agua, Guacuco y Playa Parguito. Del lado sur, frente a la isla de Coche, está El Yaque, uno de los santuarios mundiales del windsurf. El Parque Nacional Laguna de La Restiga, con su espectacular playa, es otro atractivo de gran interés.'
 );
-INSERT INTO DESTINOS VALUES (13,DATOS_TDA('Cayo sombrero','Parque Nacional morrocoy'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (13,DATOS_TDA('Cayo sombrero','Parque Nacional morrocoy'),empty_blob(),empty_blob(),
 'Una de las mejores playas de Venezuela es Cayo Sombrero, a decir verdad, es uno de los cayos más bonitos y grandes del Parque Nacional Morrocoy. Destaca por su belleza tropical, aguas cristalinas cálidas y poco profundas, además está rodeado de palmeras y arena blanca, lo cual lo hace propicio para disfrutar del mar y del sol. La única forma para llegar a este es en lancha, estas parten desde Chichiriviche o Tucacas por la mañana y vuelven por ti al atardecer.'
 );
-INSERT INTO DESTINOS VALUES (14,DATOS_TDA('Cayo sal','Parque Nacional morrocoy'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (14,DATOS_TDA('Cayo sal','Parque Nacional morrocoy'),empty_blob(),empty_blob(),
 'Si viajas con niños, una de las playas de Venezuela que debes visitar es Cayo Sal, aquí podrás disfrutar de turquesas aguas tranquilas y sin olas y blanca arena. Cayo sal es un lugar propicio para disfrutar de actividades como el snorkel, además, hacer recorridos por el lugar (que no es muy grande) Y como no, disfrutar de una rica comida caribeña a la orilla de esta hermosa playa y claro: hacer algunas fotos. '
 );
-INSERT INTO DESTINOS VALUES (15,DATOS_TDA('PLAYA PUNTA BRAVA','Parque Nacional morrocoy'),null,empty_blob(),
+INSERT INTO DESTINOS VALUES (15,DATOS_TDA('PLAYA PUNTA BRAVA','Parque Nacional morrocoy'),empty_blob(),empty_blob(),
 'Otra de las playas de Falcón es Punta Brava, esta también se encuentra en un cayo, sin embargo, se puede acceder a esta a través de un puente. Punta Brava tiene arenas doradas y aguas apacibles que son perfectas para hacer snorkel. Esta playa es muy visitada durante carnaval, semana santa, diciembre y fines de semana.'
 );
 
-INSERT INTO SERVICIOS VALUES (1,'Servicio de crucero a destino');
-INSERT INTO SERVICIOS VALUES (2,'Servicio de Alojamiento en destino');
-INSERT INTO SERVICIOS VALUES (3,'Servicio de Transporte en el destino');
-INSERT INTO SERVICIOS VALUES (4,'Servicio de Rentado de vehiculo');
-INSERT INTO SERVICIOS VALUES (5,'Servicio de Kayak');
-INSERT INTO SERVICIOS VALUES (6,'Servicio de Paseo acuatico');
-INSERT INTO SERVICIOS VALUES (7,'Servicio de comida gourmet');
-INSERT INTO SERVICIOS VALUES (8,'Servicio de Buceo');
-INSERT INTO SERVICIOS VALUES (9,'Servicio de Internet');
-INSERT INTO SERVICIOS VALUES (10,'Servicio de lavanderia');
-INSERT INTO SERVICIOS VALUES (11,'Servicio de Cocteleria');
-INSERT INTO SERVICIOS VALUES (12,'Servicio de Fotografia');
-INSERT INTO SERVICIOS VALUES (13,'Servicio de guia turistico');
-INSERT INTO SERVICIOS VALUES (14,'Servicio de botones (para el equipaje)');
-INSERT INTO SERVICIOS VALUES (15,'Servicio de cuidado de ninos');
+INSERT INTO SERVICIOS VALUES (1,'Servicio de crucero a LOS ROQUES');
+INSERT INTO SERVICIOS VALUES (2,'Servicio de crucero a MORROCOY');
+INSERT INTO SERVICIOS VALUES (3,'Servicio de crucero a Adicora');
+INSERT INTO SERVICIOS VALUES (4,'Servicio de crucero a Bahica de cata');
+INSERT INTO SERVICIOS VALUES (5,'Servicio de crucero a Choroni');
+INSERT INTO SERVICIOS VALUES (6,'Servicio de crucero a PLaya Caribe');
+INSERT INTO SERVICIOS VALUES (7,'Servicio de crucero a Las Isletas de piritu');
+INSERT INTO SERVICIOS VALUES (8,'Servicio de crucero a Mochima');
+INSERT INTO SERVICIOS VALUES (9,'Servicio de crucero a PLaya medina');
+INSERT INTO SERVICIOS VALUES (10,'Servicio de crucero a Coche');
+INSERT INTO SERVICIOS VALUES (11,'Servicio de crucero a Cubagua');
+INSERT INTO SERVICIOS VALUES (12,'Servicio de crucero a Margarita');
+INSERT INTO SERVICIOS VALUES (13,'Servicio de crucero a Cayo sombrero');
+INSERT INTO SERVICIOS VALUES (14,'Servicio de crucero a Cayo sal');
+INSERT INTO SERVICIOS VALUES (15,'Servicio de crucero a PLAYA PUNTA BRAVA');
 
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(50),FECHAS_TDA.PRECIO_TOTAL(50,DATE '2021-1-1',DATE '2021-3-1')),1,12);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-1',DATE '2021-3-1')),2,12);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-3-1')),5,12);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(4),FECHAS_TDA.PRECIO_TOTAL(4,DATE '2021-1-1',DATE '2021-3-1')),6,12);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-3-1')),7,12);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-3-1')),8,12);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-3-1')),9,12);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-3-1')),10,12);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-3-1')),11,12);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(2),FECHAS_TDA.PRECIO_TOTAL(2,DATE '2021-1-1',DATE '2021-3-1')),12,12);
+INSERT INTO SERVICIOS VALUES (17,'Servicio de Transporte en el destino');
+INSERT INTO SERVICIOS VALUES (18,'Servicio de Rentado de vehiculo');
+INSERT INTO SERVICIOS VALUES (19,'Servicio de Kayak');
+INSERT INTO SERVICIOS VALUES (20,'Servicio de Paseo acuatico');
+INSERT INTO SERVICIOS VALUES (21,'Servicio de comida gourmet');
+INSERT INTO SERVICIOS VALUES (22,'Servicio de Buceo');
+INSERT INTO SERVICIOS VALUES (23,'Servicio de Internet');
+INSERT INTO SERVICIOS VALUES (24,'Servicio de lavanderia');
+INSERT INTO SERVICIOS VALUES (25,'Servicio de Cocteleria');
+INSERT INTO SERVICIOS VALUES (26,'Servicio de Fotografia');
+INSERT INTO SERVICIOS VALUES (27,'Servicio de guia turistico');
+INSERT INTO SERVICIOS VALUES (28,'Servicio de botones (para el equipaje)');
+INSERT INTO SERVICIOS VALUES (29,'Servicio de cuidado de ninos');
+INSERT INTO SERVICIOS VALUES (16,'Servicio de Alojamiento en Margatita');
+INSERT INTO SERVICIOS VALUES (30,'Servicio de Alojamiento en Los Roques');
+INSERT INTO SERVICIOS VALUES (31,'Servicio de Alojamiento en Morrocoy');
 
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(50),FECHAS_TDA.PRECIO_TOTAL(50,DATE '2021-1-1',DATE '2021-2-28')),1,1);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-1',DATE '2021-2-28')),2,1);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-2-28')),5,1);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(4),FECHAS_TDA.PRECIO_TOTAL(4,DATE '2021-1-1',DATE '2021-2-28')),6,1);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-2-28')),7,1);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-2-28')),8,1);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-2-28')),9,1);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-2-28')),10,1);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-2-28')),11,1);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(2),FECHAS_TDA.PRECIO_TOTAL(2,DATE '2021-1-1',DATE '2021-2-28')),12,1);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(48),FECHAS_TDA.PRECIO_TOTAL(48,DATE '2021-1-1',DATE '2021-3-1')),12,12);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-1',DATE '2021-3-1')),16,12);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-3-1')),17,12);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(4),FECHAS_TDA.PRECIO_TOTAL(4,DATE '2021-1-1',DATE '2021-3-1')),18,12);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-3-1')),19,12);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-3-1')),20,12);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-3-1')),21,12);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-3-1')),22,12);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-3-1')),23,12);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(2),FECHAS_TDA.PRECIO_TOTAL(2,DATE '2021-1-1',DATE '2021-3-1')),24,12);
 
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(50),FECHAS_TDA.PRECIO_TOTAL(50,DATE '2021-1-1',DATE '2021-3-1')),1,2);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-1',DATE '2021-3-1')),2,2);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-3-1')),5,2);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(4),FECHAS_TDA.PRECIO_TOTAL(4,DATE '2021-1-1',DATE '2021-3-1')),6,2);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-3-1')),7,2);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-3-1')),8,2);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-3-1')),9,2);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-3-1')),10,2);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-3-1')),11,2);
-INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(2),FECHAS_TDA.PRECIO_TOTAL(2,DATE '2021-1-1',DATE '2021-3-1')),12,2);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(49),FECHAS_TDA.PRECIO_TOTAL(49,DATE '2021-1-1',DATE '2021-2-28')),1,1);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-1',DATE '2021-2-28')),30,1);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-2-28')),17,1);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(4),FECHAS_TDA.PRECIO_TOTAL(4,DATE '2021-1-1',DATE '2021-2-28')),18,1);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-2-28')),19,1);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-2-28')),20,1);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-2-28')),21,1);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-2-28')),22,1);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-2-28')),23,1);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-2-28',FECHAS_TDA.VALIDACION_PRECIO(2),FECHAS_TDA.PRECIO_TOTAL(2,DATE '2021-1-1',DATE '2021-2-28')),24,1);
+
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(50),FECHAS_TDA.PRECIO_TOTAL(50,DATE '2021-1-1',DATE '2021-3-1')),2,2);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-1',DATE '2021-3-1')),31,2);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-3-1')),17,2);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(4),FECHAS_TDA.PRECIO_TOTAL(4,DATE '2021-1-1',DATE '2021-3-1')),18,2);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-3-1')),19,2);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-3-1')),20,2);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(3),FECHAS_TDA.PRECIO_TOTAL(3,DATE '2021-1-1',DATE '2021-3-1')),21,2);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(5),FECHAS_TDA.PRECIO_TOTAL(5,DATE '2021-1-1',DATE '2021-3-1')),22,2);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(8),FECHAS_TDA.PRECIO_TOTAL(8,DATE '2021-1-1',DATE '2021-3-1')),23,2);
+INSERT INTO HIS_SERVICIOS VALUES (DATE '2021-1-1',FECHAS_TDA(DATE '2021-1-1',DATE '2021-3-1',FECHAS_TDA.VALIDACION_PRECIO(2),FECHAS_TDA.PRECIO_TOTAL(2,DATE '2021-1-1',DATE '2021-3-1')),24,2);
 
 
 
 INSERT INTO CRUCEROS VALUES (1, DATOS_TDA('EC-1','Un crucero con muchos salones de conciertos'),empty_blob(),1);
 INSERT INTO CRUCEROS VALUES (2, DATOS_TDA('EC-2','Tiene mucho arte barroco'),empty_blob(),2);
 INSERT INTO CRUCEROS VALUES (3, DATOS_TDA('EC-3','Inspirado en el titanic'),empty_blob(),3);
-INSERT INTO CRUCEROS VALUES (4, DATOS_TDA('EC-4','Por remodelar'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (5, DATOS_TDA('EC-5','Especial para Viajes largos'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (6, DATOS_TDA('EC-6','Para viajes pequenos'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (7, DATOS_TDA('EC-7','Muy amigable para los ninos'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (8, DATOS_TDA('EC-8','Por remodelar'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (9, DATOS_TDA('EC-9','Muchos salones de concierto'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (10, DATOS_TDA('EC-10','Tiene muchas discotecas'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (11, DATOS_TDA('EC-11','Crucero de Lujo para pocas personas'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (12, DATOS_TDA('EC-12','Crucero de Lujo para muchas personas'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (13, DATOS_TDA('EC-13','Por remodelar'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (14, DATOS_TDA('EC-14','Crucero para viajes muy largos'),empty_blob(),null);
-INSERT INTO CRUCEROS VALUES (15, DATOS_TDA('EC-15','Crucero para viajes muy pequenos'),empty_blob(),null);
+INSERT INTO CRUCEROS VALUES (4, DATOS_TDA('EC-4','Crucero sencillo pero comodo'),empty_blob(),4);
+INSERT INTO CRUCEROS VALUES (5, DATOS_TDA('EC-5','Especial para Viajes largos'),empty_blob(),5);
+INSERT INTO CRUCEROS VALUES (6, DATOS_TDA('EC-6','Para viajes pequenos'),empty_blob(),6);
+INSERT INTO CRUCEROS VALUES (7, DATOS_TDA('EC-7','Muy amigable para los ninos'),empty_blob(),7);
+INSERT INTO CRUCEROS VALUES (8, DATOS_TDA('EC-8','Crucero lleno de esculturas'),empty_blob(),8);
+INSERT INTO CRUCEROS VALUES (9, DATOS_TDA('EC-9','Muchos salones de concierto'),empty_blob(),9);
+INSERT INTO CRUCEROS VALUES (10, DATOS_TDA('EC-10','Tiene muchas discotecas'),empty_blob(),10);
+INSERT INTO CRUCEROS VALUES (11, DATOS_TDA('EC-11','Crucero de Lujo para pocas personas'),empty_blob(),11);
+INSERT INTO CRUCEROS VALUES (12, DATOS_TDA('EC-12','Crucero de Lujo para muchas personas'),empty_blob(),12);
+INSERT INTO CRUCEROS VALUES (13, DATOS_TDA('EC-13','Crucero estandar'),empty_blob(),13);
+INSERT INTO CRUCEROS VALUES (14, DATOS_TDA('EC-14','Crucero para viajes muy largos'),empty_blob(),14);
+INSERT INTO CRUCEROS VALUES (15, DATOS_TDA('EC-15','Crucero para viajes muy pequenos'),empty_blob(),15);
 
 
 INSERT INTO MANTENIMIENTOS VALUES (1,PRECIO_TDA(PRECIO_TDA.VALIDACION_MONTO(5)),'Cambio de aceite');
@@ -192,23 +209,23 @@ INSERT INTO PAQUETES VALUES (13,DATOS_TDA('E-C Cubagua','Un paquete hacia un lug
 INSERT INTO PAQUETES VALUES (14,DATOS_TDA('E-C La Orchila','Un paquete hacia la isla presidencial'),0);
 INSERT INTO PAQUETES VALUES (15,DATOS_TDA('E-C Dependencias Federales','Un paquete por las hermosas dependencias federales'),0);
 
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-1-20',FECHAS_TDA.VALIDACION_PRECIO(100.1),FECHAS_TDA.PRECIO_TOTAL(100.1,DATE '2021-1-10',DATE '2021-1-20')),1000,1,1);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-1-20',FECHAS_TDA.VALIDACION_PRECIO(20),FECHAS_TDA.PRECIO_TOTAL(20,DATE '2021-1-10',DATE '2021-1-20')),1000,2,1);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-1-20',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-1-20')),1000,5,1);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-1-20',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-1-20')),1000,6,1);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-1-20',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-1-20')),1000,7,1);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-1-20',FECHAS_TDA.VALIDACION_PRECIO(100.1),FECHAS_TDA.PRECIO_TOTAL(100.1,DATE '2021-1-10',DATE '2021-1-20')),1000,12,1);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-1-20',FECHAS_TDA.VALIDACION_PRECIO(20),FECHAS_TDA.PRECIO_TOTAL(20,DATE '2021-1-10',DATE '2021-1-20')),1000,16,1);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-1-20',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-1-20')),1000,17,1);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-1-20',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-1-20')),1000,18,1);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-1-20',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-1-20')),1000,19,1);
 
 INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-2-2',FECHAS_TDA.VALIDACION_PRECIO(100),FECHAS_TDA.PRECIO_TOTAL(100,DATE '2021-1-10',DATE '2021-2-2')),500,1,2);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-2-2',FECHAS_TDA.VALIDACION_PRECIO(20),FECHAS_TDA.PRECIO_TOTAL(20,DATE '2021-1-10',DATE '2021-2-2')),500,2,2);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-2-2',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-2-2')),500,5,2);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-2-2',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-2-2')),500,6,2);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-2-2',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-2-2')),500,7,2);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-2-2',FECHAS_TDA.VALIDACION_PRECIO(20),FECHAS_TDA.PRECIO_TOTAL(20,DATE '2021-1-10',DATE '2021-2-2')),500,16,2);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-2-2',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-2-2')),500,17,2);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-2-2',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-2-2')),500,18,2);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-10',FECHAS_TDA(DATE '2021-1-10',DATE '2021-2-2',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-10',DATE '2021-2-2')),500,19,2);
 
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-5',FECHAS_TDA(DATE '2021-1-5',DATE '2021-1-30',FECHAS_TDA.VALIDACION_PRECIO(100),FECHAS_TDA.PRECIO_TOTAL(100,DATE '2021-1-5',DATE '2021-1-30')),300,1,3);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-5',FECHAS_TDA(DATE '2021-1-5',DATE '2021-1-30',FECHAS_TDA.VALIDACION_PRECIO(20),FECHAS_TDA.PRECIO_TOTAL(20,DATE '2021-1-5',DATE '2021-1-30')),300,2,3);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-5',FECHAS_TDA(DATE '2021-1-5',DATE '2021-1-30',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-5',DATE '2021-1-30')),300,5,3);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-5',FECHAS_TDA(DATE '2021-1-5',DATE '2021-1-30',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-5',DATE '2021-1-30')),300,6,3);
-INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-5',FECHAS_TDA(DATE '2021-1-5',DATE '2021-1-30',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-5',DATE '2021-1-30')),300,7,3);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-5',FECHAS_TDA(DATE '2021-1-5',DATE '2021-1-30',FECHAS_TDA.VALIDACION_PRECIO(100),FECHAS_TDA.PRECIO_TOTAL(100,DATE '2021-1-5',DATE '2021-1-30')),300,2,3);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-5',FECHAS_TDA(DATE '2021-1-5',DATE '2021-1-30',FECHAS_TDA.VALIDACION_PRECIO(20),FECHAS_TDA.PRECIO_TOTAL(20,DATE '2021-1-5',DATE '2021-1-30')),300,16,3);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-5',FECHAS_TDA(DATE '2021-1-5',DATE '2021-1-30',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-5',DATE '2021-1-30')),300,17,3);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-5',FECHAS_TDA(DATE '2021-1-5',DATE '2021-1-30',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-5',DATE '2021-1-30')),300,18,3);
+INSERT INTO HIS_PAQUETES VALUES (DATE '2021-1-5',FECHAS_TDA(DATE '2021-1-5',DATE '2021-1-30',FECHAS_TDA.VALIDACION_PRECIO(10),FECHAS_TDA.PRECIO_TOTAL(10,DATE '2021-1-5',DATE '2021-1-30')),300,19,3);
 
 
 INSERT INTO PAISES VALUES (1,'Venezuela',empty_blob(),'AM');
