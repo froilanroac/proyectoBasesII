@@ -87,47 +87,59 @@ BEGIN
 
 END;
 /
-CREATE OR REPLACE PROCEDURE REPORTE_1 (prc out sys_refcursor)
+CREATE OR REPLACE PROCEDURE REPORTE_1 (prc out sys_refcursor,fecha_inicio date, fecha_fin date, destino VARCHAR)
 IS 
 BEGIN
     OPEN PRC FOR SELECT DISTINCT(d.datos.nombre) "DESTINO", h.fecha_creacion "FECHA_CREACION" ,h.fechas.fecha_desde "FECHA_DESDE" ,h.fechas.fecha_hasta "FECHA_HASTA" , CONCATENAR_SERVICIOS(d.id) "SERVICIOS_OFRECIDOS"
     FROM DESTINOS D,SERVICIOS S,HIS_SERVICIOS H 
     where d.id = h.fk_destino 
-    and h.fk_servicio = s.id;
+    and h.fk_servicio = s.id
+    and (h.fechas.fecha_desde >= fecha_inicio or fecha_inicio IS NULL)
+    and (h.fechas.fecha_hasta <= fecha_fin or fecha_fin IS NULL)
+    and (UPPER(d.datos.nombre) = upper(destino) or destino IS NULL);
 END;
 /
-CREATE OR REPLACE PROCEDURE REPORTE_2 (prc out sys_refcursor)
+CREATE OR REPLACE PROCEDURE REPORTE_2 (prc out sys_refcursor,fecha_inicio date, fecha_fin date)
 IS
 BEGIN
     OPEN PRC FOR SELECT d.id, d.datos.nombre, h.fechas.fecha_Desde "FECHA_DESDE", h.fechas.fecha_hasta "FECHA_HASTA", d.foto , d.descripcion
     FROM DESTINOS D, HIS_SERVICIOS H, SERVICIOS S 
     WHERE D.ID = H.FK_DESTINO AND s.id = h.fk_servicio
-    AND UPPER(S.CATEGORIA) LIKE '%CRUCERO%';
+    AND UPPER(S.CATEGORIA) LIKE '%CRUCERO%'
+    and (h.fechas.fecha_desde >= fecha_inicio or fecha_inicio IS NULL)
+    and (h.fechas.fecha_hasta <= fecha_fin OR fecha_fin is null);
 END;
 /
-CREATE OR REPLACE PROCEDURE REPORTE_3 (prc out sys_refcursor)
+CREATE OR REPLACE PROCEDURE REPORTE_3 (prc out sys_refcursor, fecha_inicio date, fecha_fin date, destino VARCHAR)
 IS 
 BEGIN
     OPEN PRC FOR select d.datos.nombre, h.fechas.fecha_desde,h.fechas.fecha_hasta, d.foto, concatenar_servicios_paquete(p.fk_paquete), CALCULAR_PRECIO_PAQUETE(p.fk_paquete)
     from destinos d,his_servicios h, servicios s, his_paquetes p 
-    where d.id = h.fk_destino and h.fk_servicio = s.id and s.id = p.fk_servicio and UPPER(s.categoria) LIKE '%CRUCERO%';
+    where d.id = h.fk_destino and h.fk_servicio = s.id and s.id = p.fk_servicio and UPPER(s.categoria) LIKE '%CRUCERO%'
+    and (p.fechas.fecha_desde >= fecha_inicio or fecha_inicio IS NULL)
+    and (p.fechas.fecha_hasta <= fecha_fin OR fecha_fin is null)
+    and (UPPER(d.datos.nombre) = upper(destino) or destino IS NULL);
 END;
 /
-CREATE OR REPLACE PROCEDURE REPORTE_4 (prc out sys_refcursor)
+CREATE OR REPLACE PROCEDURE REPORTE_4(prc out sys_refcursor, fecha_inicio date, fecha_fin date, dispo varchar)
 IS
 BEGIN
-    OPEN prc for select w.datos.nombre, h.fechas.fecha_desde,h.fechas.fecha_hasta, w.foto, concatenar_servicios_paquete(p.fk_paquete), CALCULAR_PRECIO_PAQUETE(p.fk_paquete),
-    c.nombre,c.apellido, c.email,CONCATENAR_PAGOS(f.numero_factura) ,f.canal,f.dispositivo, d.fk_paquete 
-    from clientes c, facturas f, det_facturas d,destinos w,his_servicios h, servicios s, his_paquetes p 
-    where c.pasaporte = f.fk_cliente
+    OPEN prc for SELECT c.pasaporte, c.nombre || ' ' || c.apellido "nombre" , c.email, concatenar_servicios_paquete(d.fk_paquete), f.dispositivo, f.canal, f.total, CONCATENAR_PAGOS(f.numero_factura) , h.fechas.fecha_desde, h.fechas.fecha_hasta, w.datos.nombre, w.foto
+    from clientes c, facturas f, det_facturas d, paquetes p, his_paquetes h, servicios s, his_servicios hs, destinos w
+    where c.pasaporte = f.FK_CLIENTE
     and f.numero_factura = d.fk_factura
-    and w.id = h.fk_destino 
+    and d.fk_paquete = p.id
+    and p.id = h.fk_paquete
     and h.fk_servicio = s.id 
-    and s.id = p.fk_servicio 
-    and UPPER(s.categoria) LIKE '%CRUCERO%'
-    and p.fk_paquete = d.fk_paquete;
+    and s.id = hs.fk_servicio 
+    and hs.fk_destino = w.id
+    and upper(s.categoria) like '%CRUCERO%'
+    and (upper(f.dispositivo) = UPPER(dispo) or dispo is null)
+    and (h.fechas.fecha_desde >= fecha_inicio or fecha_inicio IS NULL)
+    and (h.fechas.fecha_hasta <= fecha_fin OR fecha_fin is null);
+    
 END;
 /
-set autoprint on;
-VARIABLE MEMORYCURSOR REFCURSOR;
-EXECUTE REPORTE_4(:MEMORYCURSOR);
+-- set autoprint on;
+-- VARIABLE MEMORYCURSOR REFCURSOR;
+-- EXECUTE REPORTE_4(:MEMORYCURSOR);
