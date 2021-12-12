@@ -113,7 +113,7 @@ END;
 CREATE OR REPLACE PROCEDURE REPORTE_3 (prc out sys_refcursor, fecha_inicio date, fecha_fin date, destino VARCHAR)
 IS 
 BEGIN
-    OPEN PRC FOR select d.datos.nombre, h.fechas.fecha_desde,h.fechas.fecha_hasta, d.foto, concatenar_servicios_paquete(p.fk_paquete), CALCULAR_PRECIO_PAQUETE(p.fk_paquete)
+    OPEN PRC FOR select d.datos.nombre, p.fechas.fecha_desde,p.fechas.fecha_hasta, d.foto, concatenar_servicios_paquete(p.fk_paquete), CALCULAR_PRECIO_PAQUETE(p.fk_paquete)
     from destinos d,his_servicios h, servicios s, his_paquetes p 
     where d.id = h.fk_destino and h.fk_servicio = s.id and s.id = p.fk_servicio and UPPER(s.categoria) LIKE '%CRUCERO%'
     and (p.fechas.fecha_desde >= fecha_inicio or fecha_inicio IS NULL)
