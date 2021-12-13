@@ -133,7 +133,7 @@ Create or replace procedure insertar_imagen_pro is
   contador number;
 BEGIN
 
-  For contador IN 1..6
+  For contador IN 1..15
     LOOP
     
           SELECT l.foto
@@ -165,7 +165,7 @@ Create or replace procedure insertar_imagen_logo is
   contador number;
 BEGIN
 
-  For contador IN 1..6
+  For contador IN 1..15
     LOOP
     
           SELECT l.logo
