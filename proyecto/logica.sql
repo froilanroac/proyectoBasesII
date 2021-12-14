@@ -278,8 +278,6 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE(' X: MODULO DE ALIANZAS: NO HAY PAQUETES PARA HACER ALIANZAS (AUN HAY PAQUETES CON DISPONIBILIDAD)');
         WHEN DUP_VAL_ON_INDEX THEN
         DBMS_OUTPUT.PUT_LINE(' X: Se trato de generar una alianza que ya estaba hecha.');
-        
-
 END;
 /
 -- funcion para obtener passaportes de las personas con pcrs negativas en un periodo menor a 48 horas desde la fecha pasada como parametro
