@@ -1,4 +1,20 @@
-
+/
+create or replace function obtener_foto (identificador number) return blob
+is
+regreso blob;
+begin
+    select p.foto into regreso from proveedores p where p.id = identificador;
+return regreso;
+end;
+/
+create or replace function obtener_logo (identificador number) return blob
+is
+regreso blob;
+begin
+    select p.logo into regreso from proveedores p where p.id = identificador;
+return regreso;
+end;
+/
 CREATE OR REPLACE FUNCTION CONCATENAR_PAGOS (NUMERO_FACTURA NUMBER) RETURN VARCHAR 
 IS
 REGRESO VARCHAR(2000);
@@ -20,8 +36,6 @@ BEGIN
     RETURN REGRESO;
 
 END;
-
-
 /
 CREATE OR REPLACE FUNCTION CONCATENAR_SERVICIOS (ID_DESTINO NUMBER) RETURN VARCHAR
 IS
@@ -140,6 +154,31 @@ BEGIN
     
 END;
 /
+CREATE OR REPLACE PROCEDURE REPORTE_5(prc out sys_refcursor, fecha_inicio date, fecha_fin date, prox date)
+IS
+BEGIN
+    OPEN prc for select c.id, c.foto , h.fecha_mantenimiento, h.fecha_prox_mantenimiento, m.descripcion, m.precio.monto  
+    from cruceros c, his_mantenimientos h, mantenimientos m 
+    where c.id = h.fk_crucero
+    and h.fk_mantenimiento = m.numero
+    and (h.fecha_mantenimiento >= fecha_inicio or fecha_inicio IS NULL)
+    and (h.fecha_mantenimiento <= fecha_fin or fecha_fin IS NULL)
+    and (h.fecha_prox_mantenimiento = prox or prox IS NULL)
+    order by c.id, h.fecha_mantenimiento;
+END;
+/
+CREATE OR REPLACE PROCEDURE REPORTE_9(prc out sys_refcursor, fecha_inicio date, fecha_fin date)
+IS
+BEGIN
+    OPEN prc for select max(h.fecha_creacion), p.nombre, obtener_logo(p.id) "LOGO", obtener_foto(p.id) "FOTO"
+    from his_alianzas h, proveedores p
+    where h.fk_proveedor = p.id
+    and (h.fecha_creacion >= fecha_inicio or fecha_inicio IS NULL)
+    and (h.fecha_creacion <= fecha_fin or fecha_fin IS NULL)
+    group by p.nombre,p.id
+    order by max(h.fecha_creacion);
+END;
+/
 -- set autoprint on;
 -- VARIABLE MEMORYCURSOR REFCURSOR;
--- EXECUTE REPORTE_4(:MEMORYCURSOR);
+-- EXECUTE REPORTE_5(:MEMORYCURSOR,DATE '2021-1-20',NULL,DATE '2021-3-13');
