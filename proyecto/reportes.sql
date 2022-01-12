@@ -1,4 +1,271 @@
 /
+create or replace function obtener_foto_competencia(identificador number) return blob
+is
+regreso blob;
+begin
+    select c.foto into regreso from competidores c where c.id = identificador;
+return regreso;
+end;
+/
+CREATE OR REPLACE FUNCTION ventas_del_mes(mes number,anio number) RETURN number
+is
+regreso number(30,2);
+BEGIN
+    select sum(d.cantidad) into regreso from facturas f, det_facturas d 
+    where extract(month from f.fecha_emision) = mes 
+    and extract(year from f.fecha_emision) = anio
+    and f.numero_factura = d.fk_factura;
+
+    return regreso;
+END;
+/
+CREATE OR REPLACE FUNCTION total_formas_fecha(mes number, anio number) RETURN number
+is
+regreso number;
+BEGIN
+    regreso := 0;
+    select count (p.id) into regreso
+    from facturas f, formas_pago p
+    where f.numero_factura = p.fk_factura
+    and (EXTRACT(month FROM f.fecha_emision) = mes)
+    and (EXTRACT(year FROM f.fecha_emision) = anio);
+    return regreso;
+end;
+/
+CREATE OR REPLACE FUNCTION porcentaje_tdc(mes number, anio number) RETURN number
+is
+regreso number(20,2);
+PORCENTAJE NUMBER(20,2);
+TOTAL NUMBER(20,2);
+BEGIN
+    TOTAL := total_formas_fecha (MES,ANIO);
+    select count(p.id) INTO PORCENTAJE from facturas f, formas_pago p 
+    where f.numero_factura = p.fk_factura 
+    and EXTRACT(month FROM f.fecha_emision) = MES
+    and EXTRACT(year FROM f.fecha_emision) = ANIO
+    and p.forma = 'TDC';
+
+    PORCENTAJE := PORCENTAJE * 100 / total;
+    RETURN PORCENTAJE;
+END;
+/
+CREATE OR REPLACE FUNCTION porcentaje_efectivo(mes number, anio number) RETURN number
+is
+regreso number(20,2);
+PORCENTAJE NUMBER(20,2);
+TOTAL NUMBER(20,2);
+BEGIN
+    TOTAL := total_formas_fecha (MES,ANIO);
+    select count(p.id) INTO PORCENTAJE from facturas f, formas_pago p 
+    where f.numero_factura = p.fk_factura 
+    and EXTRACT(month FROM f.fecha_emision) = MES
+    and EXTRACT(year FROM f.fecha_emision) = ANIO
+    and p.forma = 'EFECTIVO';
+
+    PORCENTAJE := PORCENTAJE * 100 / total;
+    RETURN PORCENTAJE;
+END;
+/
+CREATE OR REPLACE FUNCTION porcentaje_cripto(mes number, anio number) RETURN number
+is
+regreso number(20,2);
+PORCENTAJE NUMBER(20,2);
+TOTAL NUMBER(20,2);
+BEGIN
+    TOTAL := total_formas_fecha (MES,ANIO);
+    select count(p.id) INTO PORCENTAJE from facturas f, formas_pago p 
+    where f.numero_factura = p.fk_factura 
+    and EXTRACT(month FROM f.fecha_emision) = MES
+    and EXTRACT(year FROM f.fecha_emision) = ANIO
+    and p.forma = 'CRIPTOMONEDA';
+
+    PORCENTAJE := PORCENTAJE * 100 / total;
+    RETURN PORCENTAJE;
+END;
+/
+CREATE OR REPLACE FUNCTION porcentaje_tdd(mes number, anio number) RETURN number
+is
+regreso number(20,2);
+PORCENTAJE NUMBER(20,2);
+TOTAL NUMBER(20,2);
+BEGIN
+    TOTAL := total_formas_fecha (MES,ANIO);
+    select count(p.id) INTO PORCENTAJE from facturas f, formas_pago p 
+    where f.numero_factura = p.fk_factura 
+    and EXTRACT(month FROM f.fecha_emision) = MES
+    and EXTRACT(year FROM f.fecha_emision) = ANIO
+    and p.forma = 'TDD';
+
+    PORCENTAJE := PORCENTAJE * 100 / total;
+    RETURN PORCENTAJE;
+END;
+/
+CREATE OR REPLACE FUNCTION porcentaje_trans(mes number, anio number) RETURN number
+is
+regreso number(20,2);
+PORCENTAJE NUMBER(20,2);
+TOTAL NUMBER(20,2);
+BEGIN
+    TOTAL := total_formas_fecha (MES,ANIO);
+    select count(p.id) INTO PORCENTAJE from facturas f, formas_pago p 
+    where f.numero_factura = p.fk_factura 
+    and EXTRACT(month FROM f.fecha_emision) = MES
+    and EXTRACT(year FROM f.fecha_emision) = ANIO
+    and p.forma = 'TRANSFERENCIA';
+
+    PORCENTAJE := PORCENTAJE * 100 / total;
+    RETURN PORCENTAJE;
+END;
+/
+CREATE OR REPLACE FUNCTION CONCATENAR_FORMAS(MES NUMBER, ANIO NUMBER) RETURN VARCHAR 
+IS
+REGRESO VARCHAR(2000);
+PORCENTAJE NUMBER(20,2);
+TOTAL NUMBER(20,2);
+BEGIN
+
+    TOTAL := total_formas_fecha (MES,ANIO);
+
+    select count(p.id) INTO PORCENTAJE from facturas f, formas_pago p 
+    where f.numero_factura = p.fk_factura 
+    and EXTRACT(month FROM f.fecha_emision) = MES
+    and EXTRACT(year FROM f.fecha_emision) = ANIO
+    and p.forma = 'TRANSFERENCIA';
+
+    PORCENTAJE := PORCENTAJE * 100 / total;
+
+    REGRESO := REGRESO || CHR(10) || 'TRANSFERENCIA - ' || PORCENTAJE || '%';
+
+    select count(p.id) INTO PORCENTAJE from facturas f, formas_pago p 
+    where f.numero_factura = p.fk_factura 
+    and EXTRACT(month FROM f.fecha_emision) = MES
+    and EXTRACT(year FROM f.fecha_emision) = ANIO
+    and p.forma = 'TDC';
+
+    PORCENTAJE := PORCENTAJE * 100 / total;
+
+    REGRESO := REGRESO || CHR(10) || 'TDC - ' || PORCENTAJE || '%';
+
+    select count(p.id) INTO PORCENTAJE from facturas f, formas_pago p 
+    where f.numero_factura = p.fk_factura 
+    and EXTRACT(month FROM f.fecha_emision) = MES
+    and EXTRACT(year FROM f.fecha_emision) = ANIO
+    and p.forma = 'EFECTIVO';
+
+    PORCENTAJE := PORCENTAJE * 100 / total;
+
+    REGRESO := REGRESO || CHR(10) || 'EFECTIVO - ' || PORCENTAJE || '%';
+
+    select count(p.id) INTO PORCENTAJE from facturas f, formas_pago p 
+    where f.numero_factura = p.fk_factura 
+    and EXTRACT(month FROM f.fecha_emision) = MES
+    and EXTRACT(year FROM f.fecha_emision) = ANIO
+    and p.forma = 'CRIPTOMONEDA';
+
+    PORCENTAJE := PORCENTAJE * 100 / total;
+
+    REGRESO := REGRESO || CHR(10) || 'CRIPTOMONEDA - ' || PORCENTAJE || '%';
+
+    select count(p.id) INTO PORCENTAJE from facturas f, formas_pago p 
+    where f.numero_factura = p.fk_factura 
+    and EXTRACT(month FROM f.fecha_emision) = MES
+    and EXTRACT(year FROM f.fecha_emision) = ANIO
+    and p.forma = 'TDD';
+
+    PORCENTAJE := PORCENTAJE * 100 / total;
+
+    REGRESO := REGRESO || CHR(10) || 'TDD - ' || PORCENTAJE || '%';
+
+return regreso;
+end;
+/
+CREATE OR REPLACE FUNCTION ingreso_mensual_servicio(cate varchar) RETURN number
+is
+regreso number;
+calculo number(20,2);
+begin
+
+    select SUM(h.fechas.precio_dia) into calculo
+    from his_paquetes h, servicios s
+    where h.fk_servicio = s.id
+    and upper(s.categoria) = UPPER(cate); 
+    calculo := calculo * 30;
+    return calculo;
+end; 
+/
+CREATE OR REPLACE FUNCTION egreso_mensual_servicio(cate varchar) RETURN number
+is
+regreso number;
+calculo number(20,2);
+begin
+
+    select SUM(h.fechas.precio_dia) into calculo
+    from his_servicios h, servicios s
+    where h.fk_servicio = s.id
+    and upper(s.categoria) = UPPER(cate); 
+    calculo := calculo * 30;
+    return calculo;
+end; 
+/
+CREATE OR REPLACE FUNCTION calculo_ganancias(cate varchar) RETURN number
+is
+calculo number(20,2);
+begin
+    calculo := ingreso_mensual_servicio(cate) - egreso_mensual_servicio(cate);
+    return calculo;
+end;
+/
+CREATE OR REPLACE FUNCTION CONCATENAR_MANTENIMIENTOS(FECHA_MAN DATE, IDENTIFICADOR NUMBER) RETURN VARCHAR 
+IS
+REGRESO VARCHAR(2000);
+CURSOR MANTENIMIENTOS_CURSOR IS SELECT m.descripcion "DESCRIPCION" FROM HIS_MANTENIMIENTOS H, MANTENIMIENTOS M WHERE h.fk_mantenimiento = m.numero AND h.fecha_mantenimiento = FECHA_MAN AND h.fk_crucero = IDENTIFICADOR;
+REGISTROS_MAN MANTENIMIENTOS_CURSOR%ROWTYPE;
+BEGIN
+    REGRESO := '';
+    OPEN MANTENIMIENTOS_CURSOR;
+    FETCH MANTENIMIENTOS_CURSOR into REGISTROS_MAN;
+    while MANTENIMIENTOS_CURSOR%FOUND
+        LOOP
+        
+        REGRESO := REGRESO || CHR(10) || '*' ||REGISTROS_MAN.DESCRIPCION;
+
+        FETCH MANTENIMIENTOS_CURSOR into REGISTROS_MAN;
+        END LOOP;
+    CLOSE MANTENIMIENTOS_CURSOR;
+
+    RETURN REGRESO;
+
+END;
+/
+create or replace function obtener_foto_crucero (identificador number) return blob
+is
+regreso blob;
+begin
+    select c.foto into regreso from cruceros c where c.id = identificador;
+return regreso;
+end;
+/
+create or replace function obtener_demanda(mes number, anio number,cantidad number) return varchar 
+IS 
+REGRESO VARCHAR(50);
+DEMANDA NUMBER(20);
+cuenta number(20,2);
+BEGIN
+    demanda := 0;
+    SELECT COUNT(s.id) INTO DEMANDA
+    FROM FACTURAS F, DET_FACTURAS D, PAQUETES P, HIS_PAQUETES H, SERVICIOS S, clientes c
+    WHERE f.numero_factura = d.fk_factura
+    AND d.fk_paquete = p.id
+    AND h.fk_paquete = p.id
+    AND h.fk_servicio = s.id
+    and f.fk_cliente = c.pasaporte
+    and (EXTRACT(month FROM f.fecha_emision) = mes)
+    and (EXTRACT(YEAR FROM f.fecha_emision) = anio);
+    cuenta:= cantidad * 100 / demanda;
+    REGRESO := to_char(cuenta) || '%';
+RETURN REGRESO;
+END;
+/
 create or replace function obtener_foto (identificador number) return blob
 is
 regreso blob;
@@ -157,15 +424,66 @@ END;
 CREATE OR REPLACE PROCEDURE REPORTE_5(prc out sys_refcursor, fecha_inicio date, fecha_fin date, prox date)
 IS
 BEGIN
-    OPEN prc for select c.id, c.foto , h.fecha_mantenimiento, h.fecha_prox_mantenimiento, m.descripcion, m.precio.monto  
+    OPEN prc for select c.id,obtener_foto_crucero(c.id), h.fecha_mantenimiento, h.fecha_prox_mantenimiento, CONCATENAR_MANTENIMIENTOS(h.fecha_mantenimiento,c.id) ,sum(m.precio.monto)
     from cruceros c, his_mantenimientos h, mantenimientos m 
     where c.id = h.fk_crucero
     and h.fk_mantenimiento = m.numero
     and (h.fecha_mantenimiento >= fecha_inicio or fecha_inicio IS NULL)
     and (h.fecha_mantenimiento <= fecha_fin or fecha_fin IS NULL)
     and (h.fecha_prox_mantenimiento = prox or prox IS NULL)
+    group by c.id , h.fecha_mantenimiento, h.fecha_prox_mantenimiento
     order by c.id, h.fecha_mantenimiento;
 END;
+/
+CREATE OR REPLACE PROCEDURE REPORTE_6(prc out sys_refcursor, mes number, cate varchar)
+IS
+BEGIN
+    OPEN prc for SELECT EXTRACT(month FROM f.fecha_emision) "Mes", EXTRACT(year FROM f.fecha_emision) "Anio",s.categoria, obtener_demanda(EXTRACT(month FROM f.fecha_emision),EXTRACT(year FROM f.fecha_emision),count(c.pasaporte))"Demanda",count(c.pasaporte) "Clientes que solicitaron"
+    FROM FACTURAS F, DET_FACTURAS D, PAQUETES P, HIS_PAQUETES H, SERVICIOS S, clientes c
+    WHERE f.numero_factura = d.fk_factura
+    AND d.fk_paquete = p.id
+    AND h.fk_paquete = p.id
+    AND h.fk_servicio = s.id
+    and f.fk_cliente = c.pasaporte
+    and (EXTRACT(month FROM f.fecha_emision) = mes or mes IS NULL)
+    and (upper(s.categoria) = upper(cate) or cate IS NULL)
+    group by EXTRACT(month FROM f.fecha_emision), EXTRACT(year FROM f.fecha_emision),s.categoria;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE REPORTE_7(prc out sys_refcursor, mes number, cate varchar)
+IS
+BEGIN
+    OPEN prc for SELECT EXTRACT(month FROM f.fecha_emision) "Mes", EXTRACT(year FROM f.fecha_emision) "Anio",s.categoria, ingreso_mensual_servicio(s.categoria), egreso_mensual_servicio(s.categoria), calculo_ganancias(s.categoria)
+    FROM FACTURAS F, DET_FACTURAS D, PAQUETES P, HIS_PAQUETES H, SERVICIOS S, clientes c, his_servicios w
+    WHERE f.numero_factura = d.fk_factura
+    AND d.fk_paquete = p.id
+    AND h.fk_paquete = p.id
+    AND h.fk_servicio = s.id
+    and f.fk_cliente = c.pasaporte
+    and s.id = w.fk_servicio
+    and (EXTRACT(month FROM f.fecha_emision) = mes or mes IS NULL)
+    and (upper(s.categoria) = upper(cate) or cate IS NULL)
+    group by EXTRACT(month FROM f.fecha_emision), EXTRACT(year FROM f.fecha_emision),s.categoria
+    order by EXTRACT(month FROM f.fecha_emision), EXTRACT(year FROM f.fecha_emision);
+
+END;
+
+/
+CREATE OR REPLACE PROCEDURE REPORTE_8(prc out sys_refcursor, mes number)
+IS
+BEGIN 
+    OPEN prc for select  EXTRACT(month FROM f.fecha_emision) "Mes",  EXTRACT(year FROM f.fecha_emision)"anio", CONCATENAR_FORMAS(EXTRACT(month FROM f.fecha_emision),  EXTRACT(year FROM f.fecha_emision)) "Medio de pago y porcentaje", 
+    porcentaje_tdc(EXTRACT(month FROM f.fecha_emision),EXTRACT(year FROM f.fecha_emision)) "TDC",
+    porcentaje_tdd(EXTRACT(month FROM f.fecha_emision),EXTRACT(year FROM f.fecha_emision)) "TDD",
+    porcentaje_efectivo(EXTRACT(month FROM f.fecha_emision),EXTRACT(year FROM f.fecha_emision)) "EFECTIVO",
+    porcentaje_trans(EXTRACT(month FROM f.fecha_emision),EXTRACT(year FROM f.fecha_emision)) "TRANSFERENCIA",
+    porcentaje_cripto(EXTRACT(month FROM f.fecha_emision),EXTRACT(year FROM f.fecha_emision)) "CRIPTOMONEDA"
+    from facturas f, formas_pago p
+    where f.numero_factura = p.fk_factura
+    and (EXTRACT(month FROM f.fecha_emision) = mes or mes is null)
+    group by EXTRACT(month FROM f.fecha_emision),  EXTRACT(year FROM f.fecha_emision);
+end;
 /
 CREATE OR REPLACE PROCEDURE REPORTE_9(prc out sys_refcursor, fecha_inicio date, fecha_fin date)
 IS
@@ -179,6 +497,18 @@ BEGIN
     order by max(h.fecha_creacion);
 END;
 /
+CREATE OR REPLACE PROCEDURE REPORTE_10(prc out sys_refcursor, mes number)
+IS
+BEGIN 
+    open prc for select extract(month from v.fecha_creacion), extract(year from v.fecha_creacion), c.nombre, obtener_foto_competencia(c.id), sum(v.cantidad_ventas) "Ventas de la comeptencia", ventas_del_mes(extract(month from v.fecha_creacion),extract(year from v.fecha_creacion))
+    from competidores c, ventas_competidores v
+    where c.id = v.fk_competidor
+    and (extract(month from v.fecha_creacion) = mes or mes is null)
+    group by extract(month from v.fecha_creacion), extract(year from v.fecha_creacion), c.nombre, c.id
+    ORDER BY extract(month from v.fecha_creacion), extract(year from v.fecha_creacion);
+
+END;
+
 -- set autoprint on;
 -- VARIABLE MEMORYCURSOR REFCURSOR;
 -- EXECUTE REPORTE_5(:MEMORYCURSOR,DATE '2021-1-20',NULL,DATE '2021-3-13');
