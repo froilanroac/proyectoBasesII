@@ -245,7 +245,7 @@ begin
 return regreso;
 end;
 /
-create or replace function obtener_demanda(mes number, anio number,cantidad number) return varchar 
+create or replace function obtener_demanda_mensual(mes number, anio number,cantidad number) return number
 IS 
 REGRESO VARCHAR(50);
 DEMANDA NUMBER(20);
@@ -262,8 +262,7 @@ BEGIN
     and (EXTRACT(month FROM f.fecha_emision) = mes)
     and (EXTRACT(YEAR FROM f.fecha_emision) = anio);
     cuenta:= cantidad * 100 / demanda;
-    REGRESO := to_char(cuenta) || '%';
-RETURN REGRESO;
+RETURN cuenta;
 END;
 /
 create or replace function obtener_foto (identificador number) return blob
@@ -438,7 +437,7 @@ END;
 CREATE OR REPLACE PROCEDURE REPORTE_6(prc out sys_refcursor, mes number, cate varchar)
 IS
 BEGIN
-    OPEN prc for SELECT EXTRACT(month FROM f.fecha_emision) "Mes", EXTRACT(year FROM f.fecha_emision) "Anio",s.categoria, obtener_demanda(EXTRACT(month FROM f.fecha_emision),EXTRACT(year FROM f.fecha_emision),count(c.pasaporte))"Demanda",count(c.pasaporte) "Clientes que solicitaron"
+    OPEN prc for SELECT EXTRACT(month FROM f.fecha_emision) "Mes", EXTRACT(year FROM f.fecha_emision) "Anio",s.categoria,count(c.pasaporte) "Clientes que solicitaron", obtener_demanda_mensual(EXTRACT(month FROM f.fecha_emision),EXTRACT(year FROM f.fecha_emision),count(c.pasaporte)) || '%' 
     FROM FACTURAS F, DET_FACTURAS D, PAQUETES P, HIS_PAQUETES H, SERVICIOS S, clientes c
     WHERE f.numero_factura = d.fk_factura
     AND d.fk_paquete = p.id
