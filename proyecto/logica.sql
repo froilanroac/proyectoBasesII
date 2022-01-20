@@ -414,7 +414,7 @@ BEGIN
     INSERT INTO FORMAS_PAGO VALUES (MAX_FORMA,PRECIO_TDA(NUEVO_MONTO),'TDD',NUMERO_FACTURA,CLIENTE,PAIS_CLIENTE);
     
 
-    ELSIF (FORMAS = 5) THEN
+    ELSIF (FORMAS >= 5) THEN
 
     
     NUEVO_MONTO := MONTO_TOTAL/5;
@@ -498,18 +498,18 @@ BEGIN
         NUEVA_DISPONIBILIDAD := NUEVA_DISPONIBILIDAD - DISMINUCION;
 
             --meter esta basura en dos funciones distintas
-            Select trunc(dbms_random.value(1,4)) num into DISPOSITIVOS_ALEATORIOS From dual;
+            Select trunc(dbms_random.value(1,5)) num into DISPOSITIVOS_ALEATORIOS From dual;
             IF (DISPOSITIVOS_ALEATORIOS = 1) THEN
             VARCHAR_DISPOSITIVOS := 'ANDROID';
             ELSIF (DISPOSITIVOS_ALEATORIOS = 2) THEN
             VARCHAR_DISPOSITIVOS := 'IOS';
             ELSIF (DISPOSITIVOS_ALEATORIOS = 3) THEN
             VARCHAR_DISPOSITIVOS := 'WINDOWS';
-            ELSIF (DISPOSITIVOS_ALEATORIOS = 4) THEN
+            ELSIF (DISPOSITIVOS_ALEATORIOS >= 4) THEN
             VARCHAR_DISPOSITIVOS := 'OTRO';
             END IF;
 
-            Select trunc(dbms_random.value(1,5)) num into CANALES_ALEATORIOS From dual;
+            Select trunc(dbms_random.value(1,6)) num into CANALES_ALEATORIOS From dual;
             IF (CANALES_ALEATORIOS = 1) THEN
             VARCHAR_CANALES := 'AGENCIA FISICA';
             ELSIF (CANALES_ALEATORIOS = 2) THEN
@@ -518,7 +518,7 @@ BEGIN
             VARCHAR_CANALES := 'PAGINA WEB';
             ELSIF (CANALES_ALEATORIOS = 4) THEN
             VARCHAR_CANALES := 'WHATSAPP';
-            ELSIF (CANALES_ALEATORIOS = 5) THEN
+            ELSIF (CANALES_ALEATORIOS >= 5) THEN
             VARCHAR_CANALES := 'INSTAGRAM';
             END IF;
 
@@ -530,7 +530,7 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE(' -GENERAR FACTURA: NUEVA_DISPONIBILIDAD '|| NUEVA_DISPONIBILIDAD);
         UPDATE HIS_PAQUETES SET DISPONIBILIDAD = NUEVA_DISPONIBILIDAD WHERE FK_PAQUETE = PAQUETE;
 
-        Select trunc(dbms_random.value(1,5)) num into FORMAS_ALEATORIAS From dual;
+        Select trunc(dbms_random.value(1,6)) num into FORMAS_ALEATORIAS From dual;
         GENERAR_FORMA_DE_PAGO(FORMAS_ALEATORIAS,PRECIO_PAQUETE,MAX_FACTURA,PASAPORTE_P,PAIS_PERSONA);
 
         END IF;
