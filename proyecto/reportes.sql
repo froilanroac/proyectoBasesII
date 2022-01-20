@@ -203,6 +203,10 @@ BEGIN
     and extract(year from f.fecha_emision) = anio
     and f.numero_factura = d.fk_factura;
 
+    if(regreso is null) then
+    regreso:=0;
+    end if;
+
     return regreso;
 END;
 /
@@ -411,6 +415,13 @@ BEGIN
     and (EXTRACT(month FROM f.fecha_emision) = mes)
     and (EXTRACT(YEAR FROM f.fecha_emision) = anio);
     cuenta:= cantidad * 100 / demanda;
+
+    if(demanda <> 0) then
+    cuenta:= cantidad * 100 / demanda;
+    ELSE 
+    Cuenta:=0; 
+    END IF;
+
 RETURN cuenta;
 END;
 /
@@ -595,7 +606,8 @@ BEGIN
     and f.fk_cliente = c.pasaporte
     and (EXTRACT(month FROM f.fecha_emision) = mes or mes IS NULL)
     and (upper(s.categoria) = upper(cate) or cate IS NULL)
-    group by EXTRACT(month FROM f.fecha_emision), EXTRACT(year FROM f.fecha_emision),s.categoria;
+    group by EXTRACT(month FROM f.fecha_emision), EXTRACT(year FROM f.fecha_emision),s.categoria
+    order by EXTRACT(month FROM f.fecha_emision), EXTRACT(year FROM f.fecha_emision);
 END;
 /
 CREATE OR REPLACE PROCEDURE REPORTE_7(prc out sys_refcursor, mes number, cate varchar)
