@@ -414,7 +414,7 @@ BEGIN
     and f.fk_cliente = c.pasaporte
     and (EXTRACT(month FROM f.fecha_emision) = mes)
     and (EXTRACT(YEAR FROM f.fecha_emision) = anio);
-    cuenta:= cantidad * 100 / demanda;
+    -- cuenta:= cantidad * 100 / demanda;
 
     if(demanda <> 0) then
     cuenta:= cantidad * 100 / demanda;
