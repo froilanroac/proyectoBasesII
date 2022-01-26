@@ -22,14 +22,22 @@ begin
 end;
 /
 CREATE OR REPLACE TRIGGER trigger_prueba
-after INSERT ON TABLA_PRUEBA
+after INSERT ON paises
 DECLARE
 begin 
 dbms_output.put_line('PRUEBA'); 
 end;
 /
 CREATE VIEW vista_prueba AS 
-SELECT p.id FROM tabla_prueba p;
+SELECT p.id FROM paises p;
+/
+CREATE SEQUENCE supplier_seq
+  MINVALUE 1
+  START WITH 1
+  INCREMENT BY 1
+  CACHE 20;
+/
+drop SEQUENCE supplier_seq;
 /
 -- prueba en las tablas
 -- paquetes
